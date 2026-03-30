@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" width="420" height="150">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ECC71"/>
+      <stop offset="100%" style="stop-color:#1A6B3C"/>
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB"/>
+      <stop offset="100%" style="stop-color:#1A5276"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Solar panel icon -->
+  <rect x="15" y="40" width="80" height="55" rx="4" fill="url(#panelGrad)" opacity="0.9"/>
+  <!-- Panel grid lines -->
+  <line x1="41" y1="40" x2="41" y2="95" stroke="white" stroke-width="1.5" opacity="0.5"/>
+  <line x1="67" y1="40" x2="67" y2="95" stroke="white" stroke-width="1.5" opacity="0.5"/>
+  <line x1="15" y1="58" x2="95" y2="58" stroke="white" stroke-width="1.5" opacity="0.5"/>
+  <line x1="15" y1="76" x2="95" y2="76" stroke="white" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Shine on panel -->
+  <circle cx="30" cy="52" r="5" fill="white" opacity="0.25"/>
+
+  <!-- Leaf overlay on corner -->
+  <path d="M75 25 Q110 25 110 65 Q75 65 75 25Z" fill="url(#leafGrad)" opacity="0.95"/>
+  <line x1="75" y1="25" x2="110" y2="65" stroke="white" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Sun above -->
+  <circle cx="110" cy="22" r="12" fill="#FFB800"/>
+  <g stroke="#FFB800" stroke-width="2.5" stroke-linecap="round">
+    <line x1="110" y1="4" x2="110" y2="0"/>
+    <line x1="124" y1="8" x2="127" y2="5"/>
+    <line x1="128" y1="22" x2="132" y2="22"/>
+  </g>
+
+  <!-- Company Name -->
+  <text x="145" y="58" font-family="'Trebuchet MS', sans-serif" font-size="28" font-weight="900" fill="#1A5276" letter-spacing="0">BR</text>
+  <text x="182" y="58" font-family="'Trebuchet MS', sans-serif" font-size="28" font-weight="400" fill="#2ECC71"> RENEW</text>
+  <text x="145" y="82" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#666" letter-spacing="3">SOLAR ENERGY SOLUTIONS</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="145" y="92" width="250" height="3" rx="2" fill="url(#leafGrad)"/>
+</svg>
