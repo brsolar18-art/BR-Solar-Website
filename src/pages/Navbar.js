@@ -44,7 +44,7 @@ function Navbar() {
   const links = useMemo(
     () => [
       { name: "Home", path: "/" },
-      { name: "Gallery", path: "/gallery" },
+      /*{ name: "Gallery", path: "/gallery" }, */
       { name: "Services", path: "/services" },
       { name: "About", path: "/about" },
       { name: "Contact Us", path: "/contact" }
