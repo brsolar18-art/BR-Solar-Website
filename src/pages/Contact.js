@@ -2,13 +2,19 @@ import React, { useRef, useState } from "react";
 import "./Contact.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
   const [phone, setPhone] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    title: "",
+    category: "",
+    message: ""
+  });
 
   const mapLink = "https://maps.google.com/?q=Kurnool%20Andhra%20Pradesh";
   const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent("Kurnool, Andhra Pradesh")}&output=embed`;
@@ -18,7 +24,7 @@ export default function Contact() {
     "Commercial Solar Panels",
     "Industrial Solar Panels",
     "Agricultural Solar Panels",
-    "Solar Installation & Support",
+    "Solar Installation & Support"
   ];
 
   const handlePhoneChange = (e) => {
@@ -26,7 +32,15 @@ export default function Contact() {
     setPhone(onlyDigits);
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (phone.length !== 10) {
@@ -34,33 +48,46 @@ export default function Contact() {
       return;
     }
 
-    const now = new Date();
-    const submittedAt = now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-
-    const timeInput = formRef.current?.querySelector('input[name="time"]');
-    const sourceInput = formRef.current?.querySelector('input[name="source"]');
-    const submittedAtInput = formRef.current?.querySelector('input[name="submitted_at"]');
-
-    if (timeInput) timeInput.value = submittedAt;
-    if (sourceInput) sourceInput.value = "Contact Page";
-    if (submittedAtInput) submittedAtInput.value = submittedAt;
-
     setLoading(true);
 
-    emailjs
-      .sendForm("service_xj6kp6o", "template_gvzo194", formRef.current, "A3f67NO9h5O9f35Ls")
-      .then(
-        () => {
-          setLoading(false);
-          setPopupVisible(true);
-          setPhone("");
-          formRef.current?.reset();
+    try {
+      const response = await fetch("https://br-solar-backend.vercel.app/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
         },
-        () => {
-          setLoading(false);
-          alert("Failed to send. Please try again.");
-        }
-      );
+        body: JSON.stringify({
+          name: formData.name,
+          phone,
+          email: formData.email,
+          title: formData.title,
+          category: formData.category,
+          message: formData.message,
+          source: "website"
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to submit form");
+      }
+
+      setPopupVisible(true);
+      setPhone("");
+      setFormData({
+        name: "",
+        email: "",
+        title: "",
+        category: "",
+        message: ""
+      });
+      formRef.current?.reset();
+    } catch (error) {
+      alert(error.message || "Failed to send. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -193,14 +220,18 @@ export default function Contact() {
                 <div className="contact8-formcard-shape contact8-formcard-shape-two" />
 
                 <form ref={formRef} onSubmit={handleSubmit} className="contact8-form">
-                  <input type="hidden" name="time" />
-                  <input type="hidden" name="source" />
-                  <input type="hidden" name="submitted_at" />
-
                   <div className="contact8-form-row">
                     <div className="contact8-field">
                       <label className="contact8-label">Name</label>
-                      <input className="contact8-input" name="name" type="text" placeholder="Enter your name" required />
+                      <input
+                        className="contact8-input"
+                        name="name"
+                        type="text"
+                        placeholder="Enter your name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                     <div className="contact8-field">
                       <label className="contact8-label">Phone</label>
@@ -221,17 +252,39 @@ export default function Contact() {
                   <div className="contact8-form-row">
                     <div className="contact8-field">
                       <label className="contact8-label">Email</label>
-                      <input className="contact8-input" name="email" type="email" placeholder="Enter your email" required />
+                      <input
+                        className="contact8-input"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                     <div className="contact8-field">
                       <label className="contact8-label">Subject</label>
-                      <input className="contact8-input" name="title" type="text" placeholder="Eg: Residential solar setup" required />
+                      <input
+                        className="contact8-input"
+                        name="title"
+                        type="text"
+                        placeholder="Eg: Residential solar setup"
+                        value={formData.title}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                   </div>
 
                   <div className="contact8-field">
                     <label className="contact8-label">Service</label>
-                    <select className="contact8-input" name="category" defaultValue="" required>
+                    <select
+                      className="contact8-input contact8-select"
+                      name="category"
+                      value={formData.category}
+                      onChange={handleChange}
+                      required
+                    >
                       <option value="" disabled>
                         Select a service
                       </option>
@@ -245,7 +298,15 @@ export default function Contact() {
 
                   <div className="contact8-field">
                     <label className="contact8-label">Message</label>
-                    <textarea className="contact8-textarea" name="message" rows="5" placeholder="Tell us your requirement" required />
+                    <textarea
+                      className="contact8-textarea"
+                      name="message"
+                      rows="5"
+                      placeholder="Tell us your requirement"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
 
                   <button type="submit" className="contact8-submit" disabled={loading}>
@@ -533,8 +594,6 @@ export default function Contact() {
             </div>
           </div>
         </section>
-
-
 
         <section className="contact8-s8" aria-label="Final call to action">
           <div className="contact8-container">

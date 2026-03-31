@@ -767,6 +767,19 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.contact8-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #1a1a1a;
+  color: var(--white);
+}
+
+.contact8-select option {
+  background: #1a1a1a;
+  color: var(--white);
+}
+
 .contact8-textarea {
   min-height: 140px;
   resize: vertical;
