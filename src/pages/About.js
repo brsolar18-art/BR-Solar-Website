@@ -34,8 +34,8 @@ export default function About() {
               <a className="about8-btn about8-btn-solid" href="/contact">
                 Get a Free Consultation
               </a>
-              <a className="about8-btn about8-btn-ghost" href="tel:+9173920789920">
-                Call 73920 789920
+              <a className="about8-btn about8-btn-ghost" href="tel:+91778920">
+                Call 73920 78920
               </a>
             </div>
 
@@ -124,8 +124,8 @@ export default function About() {
                       <div className="about8-info-icon">☎</div>
                       <div>
                         <div className="about8-info-label">Phone</div>
-                        <a className="about8-info-val about8-link" href="tel:+9173920789920">
-                          73920 789920
+                        <a className="about8-info-val about8-link" href="tel:+917392078920">
+                          73920 78920
                         </a>
                       </div>
                     </div>
@@ -283,7 +283,7 @@ export default function About() {
                     <a className="about8-btn about8-btn-solid" href="/contact">
                       Get in Touch
                     </a>
-                    <a className="about8-btn about8-btn-outline" href="tel:+9173920789920">
+                    <a className="about8-btn about8-btn-outline" href="tel:+917392078920">
                       Call Now
                     </a>
                   </div>
@@ -541,8 +541,8 @@ export default function About() {
                     <div className="about8-contact-icon">☎</div>
                     <div className="about8-contact-main">
                       <div className="about8-contact-label">Phone</div>
-                      <a className="about8-contact-val about8-link" href="tel:+9173920789920">
-                        73920 789920
+                      <a className="about8-contact-val about8-link" href="tel:+917392078920">
+                        73920 78920
                       </a>
                     </div>
                   </div>
@@ -744,8 +744,8 @@ export default function About() {
                 <div className="about8-card-mid">
                   <div className="about8-card-col">
                     <div className="about8-card-label">Phone</div>
-                    <a className="about8-card-val" href="tel:+9173920789920">
-                      73920 789920
+                    <a className="about8-card-val" href="tel:+917392078920">
+                      73920 78920
                     </a>
                   </div>
 

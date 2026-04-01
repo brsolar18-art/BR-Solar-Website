@@ -325,7 +325,7 @@ function HomePage() {
                 <div className="visit-card-footer">
                   <div className="visit-card-line">
                     <span className="visit-card-label">Phone</span>
-                    <span className="visit-card-value">73920 789920</span>
+                    <span className="visit-card-value">73920 78920</span>
                   </div>
 
                   <div className="visit-card-line">

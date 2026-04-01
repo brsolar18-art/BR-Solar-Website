@@ -45,8 +45,8 @@ function Services() {
                 <a className="btn btn-solid" href="/contact">
                   Get Quote
                 </a>
-                <a className="btn btn-outline" href="tel:+9173920789920">
-                  Call 73920 789920
+                <a className="btn btn-outline" href="tel:+917392078920">
+                  Call 73920 78920
                 </a>
               </div>
 
@@ -261,7 +261,7 @@ function Services() {
               <a className="btn btn-solid" href="/contact">
                 Enquire Now
               </a>
-              <a className="btn btn-outline" href="tel:+9173920789920">
+              <a className="btn btn-outline" href="tel:+917392078920">
                 Call Now
               </a>
             </div>
@@ -429,7 +429,7 @@ function Services() {
 
           <div className="regions-float regions-float-bottom">
             <div className="regions-float-title">Book a Site Visit</div>
-            <div className="regions-float-sub">Call 73920 789920</div>
+            <div className="regions-float-sub">Call 73920 78920</div>
           </div>
         </div>
       </div>
@@ -559,7 +559,7 @@ function Services() {
         <a className="btn btn-solid" href="/contact">
           Get a Solar Plan
         </a>
-        <a className="btn btn-outline" href="tel:+9173920789920">
+        <a className="btn btn-outline" href="tel:+917392078920">
           Talk to Us
         </a>
       </div>
@@ -673,7 +673,7 @@ function Services() {
             <a className="btn btn-solid" href="/contact">
               Get Quote
             </a>
-            <a className="btn btn-outline" href="tel:+9173920789920">
+            <a className="btn btn-outline" href="tel:+917392078920">
               Call Now
             </a>
           </div>
@@ -681,8 +681,8 @@ function Services() {
           <div className="showcase-meta">
             <div className="showcase-meta-title">Kadapa • Andhra Pradesh</div>
             <div className="showcase-meta-sub">
-              <a className="link" href="tel:+9173920789920">
-                73920 789920
+              <a className="link" href="tel:+917392078920">
+                73920 78920
               </a>
               <span className="sep">|</span>
               <a className="link" href="mailto:brsolar18@gmail.com">
@@ -874,8 +874,8 @@ function Services() {
           <a className="btn btn-solid" href="/contact">
             Get Quote
           </a>
-          <a className="btn btn-outline" href="tel:+9173920789920">
-            Call 73920 789920
+          <a className="btn btn-outline" href="tel:+917392078920">
+            Call 73920 78920
           </a>
         </div>
       </div>

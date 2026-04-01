@@ -48,7 +48,7 @@ const Footer = () => {
         title: "Contact",
         type: "contact",
         items: [
-          { icon: <FaPhoneAlt />, label: "73920 789920", href: "tel:+9173920789920" },
+          { icon: <FaPhoneAlt />, label: "73920 78920", href: "tel:+917392078920" },
           { icon: <FaPhoneAlt />, label: "7995050203", href: "tel:+917995050203" },
           { icon: <FaEnvelope />, label: "brsolar18@gmail.com", href: "mailto:brsolar18@gmail.com" },
           { icon: <FaMapMarkerAlt />, label: address, href: "https://maps.google.com/?q=Kurnool%20Andhra%20Pradesh" },
@@ -77,9 +77,9 @@ const Footer = () => {
             </div>
 
             <div className="brand-contact-final">
-              <a className="footer-link-final" href="tel:+9173920789920">
+              <a className="footer-link-final" href="tel:+917392078920">
                 <FaPhoneAlt />
-                <span>73920 789920</span>
+                <span>73920 78920</span>
               </a>
               <a className="footer-link-final" href="tel:+917995050203">
                 <FaPhoneAlt />

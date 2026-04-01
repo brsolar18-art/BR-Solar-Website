@@ -123,7 +123,7 @@ export default function Contact() {
             </div>
 
             <div className="contact8-hero-actions">
-              <a href="tel:73920789920" className="contact8-hero-btn contact8-hero-btn-primary">
+              <a href="tel:7392078920" className="contact8-hero-btn contact8-hero-btn-primary">
                 Call Now
               </a>
               <a href="mailto:brsolar18@gmail.com" className="contact8-hero-btn contact8-hero-btn-secondary">
@@ -148,7 +148,7 @@ export default function Contact() {
             </div>
 
             <div className="contact8-cards">
-              <a className="contact8-card" href="tel:+9173920789920" aria-label="Call us">
+              <a className="contact8-card" href="tel:+917392078920" aria-label="Call us">
                 <div className="contact8-card-icon">
                   <span className="contact8-card-icon-ring" />
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -156,7 +156,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div className="contact8-card-kicker">Primary Phone</div>
-                <div className="contact8-card-main">73920 789920</div>
+                <div className="contact8-card-main">73920 78920</div>
                 <div className="contact8-card-sub">Tap to call now</div>
               </a>
 
@@ -377,7 +377,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact8-s2-actions">
-                  <a className="contact8-btn contact8-btn-solid" href="tel:+9173920789920">
+                  <a className="contact8-btn contact8-btn-solid" href="tel:+917392078920">
                     Call Now
                   </a>
                   <a className="contact8-btn contact8-btn-outline" href="mailto:brsolar18@gmail.com">
@@ -531,7 +531,7 @@ export default function Contact() {
                 </p>
 
                 <div className="contact8-info">
-                  <a className="contact8-info-row" href="tel:+9173920789920" aria-label="Call primary phone">
+                  <a className="contact8-info-row" href="tel:+917392078920" aria-label="Call primary phone">
                     <div className="contact8-info-icon">
                       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.69 6.45 9.06 7.57C9.18 7.92 9.09 8.32 8.82 8.59L6.62 10.79Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -539,7 +539,7 @@ export default function Contact() {
                     </div>
                     <div className="contact8-info-content">
                       <div className="contact8-info-label">Phone</div>
-                      <div className="contact8-info-val">73920 789920</div>
+                      <div className="contact8-info-val">73920 78920</div>
                     </div>
                   </a>
 
@@ -583,7 +583,7 @@ export default function Contact() {
                 </div>
 
                 <div className="contact8-s3-actions">
-                  <a className="contact8-s3-btn contact8-s3-btn-solid" href="tel:+9173920789920">
+                  <a className="contact8-s3-btn contact8-s3-btn-solid" href="tel:+917392078920">
                     Call Now
                   </a>
                   <a className="contact8-s3-btn contact8-s3-btn-outline" href="mailto:brsolar18@gmail.com">
@@ -627,7 +627,7 @@ export default function Contact() {
               </div>
 
               <div className="contact8-final-actions">
-                <a className="contact8-final-btn contact8-final-btn-primary" href="tel:+9173920789920">
+                <a className="contact8-final-btn contact8-final-btn-primary" href="tel:+917392078920">
                   Call Now
                 </a>
                 <a className="contact8-final-btn contact8-final-btn-secondary" href="mailto:brsolar18@gmail.com">
@@ -636,7 +636,7 @@ export default function Contact() {
 
                 <div className="contact8-final-mini">
                   <div className="contact8-final-mini-label">Quick Contact</div>
-                  <div className="contact8-final-mini-value">73920 789920</div>
+                  <div className="contact8-final-mini-value">73920 78920</div>
                 </div>
               </div>
             </div>
