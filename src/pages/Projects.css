@@ -1,0 +1,342 @@
+.projects9-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.08), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.projects9-main {
+  padding-top: 0;
+}
+
+.projects9-container {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.projects9-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 64px;
+  background: linear-gradient(135deg, #0b1220 0%, #111827 55%, #1f2937 100%);
+}
+
+.projects9-hero::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.16);
+  filter: blur(70px);
+  top: -100px;
+  left: -80px;
+}
+
+.projects9-hero::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(250, 204, 21, 0.12);
+  filter: blur(80px);
+  right: -90px;
+  bottom: -90px;
+}
+
+.projects9-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.projects9-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  color: #facc15;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.12);
+}
+
+.projects9-title {
+  margin: 18px 0 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4.8vw, 3.8rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.projects9-subtitle {
+  margin: 18px auto 0;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.projects9-section {
+  padding: 42px 0 70px;
+}
+
+.projects9-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.projects9-item {
+  width: 100%;
+}
+
+.projects9-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.projects9-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+  min-height: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.projects9-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.1);
+}
+
+.projects9-details-card {
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf2 100%);
+}
+
+.projects9-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: 34px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.projects9-client {
+  margin: 16px 0 0;
+  color: #111827;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.projects9-location {
+  margin-top: 10px;
+  color: #f59e0b;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.projects9-description {
+  margin: 14px 0 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.projects9-image-card {
+  min-height: 300px;
+  position: relative;
+}
+
+.projects9-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.projects9-image-card:hover .projects9-image {
+  transform: scale(1.06);
+}
+
+.projects9-empty {
+  min-height: 280px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 1200px) {
+  .projects9-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projects9-image-card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects9-main {
+    padding-top: 0;
+  }
+
+  .projects9-container {
+    width: min(100% - 20px, 1280px);
+  }
+
+  .projects9-hero {
+    padding: 48px 0 42px;
+  }
+
+  .projects9-pill {
+    min-height: 36px;
+    padding: 7px 14px;
+    font-size: 0.74rem;
+  }
+
+  .projects9-title {
+    font-size: 2rem;
+  }
+
+  .projects9-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .projects9-section {
+    padding: 24px 0 50px;
+  }
+
+  .projects9-list {
+    gap: 18px;
+  }
+
+  .projects9-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .projects9-card {
+    border-radius: 18px;
+  }
+
+  .projects9-details-card {
+    padding: 18px 16px;
+  }
+
+  .projects9-badge {
+    min-height: 30px;
+    padding: 5px 10px;
+    font-size: 0.72rem;
+  }
+
+  .projects9-client {
+    margin-top: 12px;
+    font-size: 1.05rem;
+  }
+
+  .projects9-location {
+    margin-top: 8px;
+    font-size: 0.86rem;
+  }
+
+  .projects9-description {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  .projects9-image-card {
+    min-height: 170px;
+  }
+
+  .projects9-empty {
+    min-height: 200px;
+    border-radius: 18px;
+    font-size: 0.94rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects9-container {
+    width: min(100% - 16px, 1280px);
+  }
+
+  .projects9-hero {
+    padding: 42px 0 38px;
+  }
+
+  .projects9-title {
+    font-size: 1.75rem;
+  }
+
+  .projects9-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .projects9-grid {
+    gap: 12px;
+  }
+
+  .projects9-details-card {
+    padding: 16px 14px;
+  }
+
+  .projects9-client {
+    font-size: 0.98rem;
+  }
+
+  .projects9-location {
+    font-size: 0.82rem;
+  }
+
+  .projects9-description {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .projects9-image-card {
+    min-height: 145px;
+  }
+}
