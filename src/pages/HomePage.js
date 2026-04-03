@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
@@ -8,22 +8,112 @@ import "swiper/css/effect-coverflow";
 import { FaHome, FaBuilding, FaRegBuilding } from "react-icons/fa";
 
 function HomePage() {
+  const [homeProjects, setHomeProjects] = useState([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRandomProjects = async () => {
+      try {
+        const response = await fetch("https://br-solar-backend.vercel.app/api/projects");
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || "Failed to fetch projects");
+        }
+
+        const allProjects = Array.isArray(data.data) ? data.data : [];
+        const shuffledProjects = [...allProjects].sort(() => Math.random() - 0.5);
+        setHomeProjects(shuffledProjects.slice(0, 3));
+      } catch (error) {
+        setHomeProjects([]);
+      } finally {
+        setProjectsLoading(false);
+      }
+    };
+
+    fetchRandomProjects();
+  }, []);
+
+    const statsRef = useRef(null);
+  const [statsStarted, setStatsStarted] = useState(false);
+  const [stats, setStats] = useState({
+    installations: 0,
+    capacity: 0,
+    clients: 0,
+    support: 0
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!statsStarted) return;
+
+    const targets = {
+      installations: 180,
+      capacity: 950,
+      clients: 320,
+      support: 24
+    };
+
+    const duration = 1800;
+    const frameRate = 16;
+    const totalFrames = Math.round(duration / frameRate);
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame += 1;
+      const progress = frame / totalFrames;
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      setStats({
+        installations: Math.floor(targets.installations * easeOut),
+        capacity: Math.floor(targets.capacity * easeOut),
+        clients: Math.floor(targets.clients * easeOut),
+        support: Math.floor(targets.support * easeOut)
+      });
+
+      if (frame >= totalFrames) {
+        setStats(targets);
+        clearInterval(counter);
+      }
+    }, frameRate);
+
+    return () => clearInterval(counter);
+  }, [statsStarted]);
+
+
   return (
     <>
       <Navbar />
       <main className="home">
         <section className="hero-section">
-          <div className="image-container">
-            <img src="/Images/solar1.jpg" alt="Solar Panel Installation" className="image1" />
-            <img src="/Images/solar2.jpg" alt="Clean Energy Solutions" className="image2" />
-          </div>
+          <img src="/Images/solar1.jpg" alt="Solar Panel Installation" className="hero-image" />
+
+          <div className="hero-overlay"></div>
 
           <div className="text-container">
             <h6 className="small-text">BR SOLAR</h6>
             <h1 className="crafted-text">Power From</h1>
             <h1 className="built-text">Every Sunrise</h1>
-            <h4 className="description-title">Clean energy for homes, businesses, and a greener tomorrow</h4>
-
+            <h4 className="description-title">
+              Clean energy for homes, businesses, and a greener tomorrow
+            </h4>
           </div>
         </section>
 
@@ -128,6 +218,138 @@ function HomePage() {
                 </div>
               </article>
             </div>
+          </div>
+        </section>
+
+                <section className="solar-stats" ref={statsRef} aria-label="Solar achievements">
+          <div className="solar-stats-container">
+            <div className="solar-stats-head">
+              <span className="solar-stats-pill">BR SOLAR IMPACT</span>
+              <h2 className="solar-stats-title">Numbers That Reflect Real Solar Work</h2>
+              <p className="solar-stats-subtitle">
+                From rooftop installations to delivered capacity, these numbers show our commitment to clean energy,
+                quality execution, and reliable long-term support.
+              </p>
+            </div>
+
+            <div className="solar-stats-grid">
+              <div className="solar-stat-card solar-stat-card-featured">
+                <div className="solar-stat-icon">☀</div>
+                <div className="solar-stat-number">{stats.installations}+</div>
+                <div className="solar-stat-label">Installations Completed</div>
+                <p className="solar-stat-text">
+                  Residential, commercial, industrial, and agricultural systems delivered with precision.
+                </p>
+              </div>
+
+              <div className="solar-stat-card">
+                <div className="solar-stat-icon">⚡</div>
+                <div className="solar-stat-number">{stats.capacity} KW+</div>
+                <div className="solar-stat-label">Installed Capacity</div>
+                <p className="solar-stat-text">
+                  Efficient solar systems designed to generate clean power and reduce long-term energy costs.
+                </p>
+              </div>
+
+              <div className="solar-stat-card">
+                <div className="solar-stat-icon">🏠</div>
+                <div className="solar-stat-number">{stats.clients}+</div>
+                <div className="solar-stat-label">Happy Clients</div>
+                <p className="solar-stat-text">
+                  Trusted by homeowners, businesses, and institutions looking for dependable solar solutions.
+                </p>
+              </div>
+
+              <div className="solar-stat-card">
+                <div className="solar-stat-icon">🛠</div>
+                <div className="solar-stat-number">{stats.support}/7</div>
+                <div className="solar-stat-label">Support Mindset</div>
+                <p className="solar-stat-text">
+                  Clear guidance, smooth installation, and responsive after-service support from our team.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="home-projects" aria-label="Featured solar projects">
+          <div className="home-projects-container">
+            <div className="home-projects-head">
+              <span className="home-projects-pill">BR SOLAR PROJECTS</span>
+              <h2 className="home-projects-title">Featured Installation Projects</h2>
+              <p className="home-projects-subtitle">
+                A quick look at some of our recent solar installations delivered with quality, precision, and trust.
+              </p>
+            </div>
+
+            {projectsLoading ? (
+              <div className="home-projects-empty">Loading projects...</div>
+            ) : homeProjects.length === 0 ? (
+              <div className="home-projects-empty">No projects available right now.</div>
+            ) : (
+              <div className="home-projects-list">
+                {homeProjects.map((project, index) => (
+                  <div className="home-project-row" key={project.id || index}>
+                    <div className="home-project-card home-project-info-card">
+                      <div className="home-project-top">
+                        <div className="home-project-badge">Project #{project.id}</div>
+                      </div>
+
+                      <div className="home-project-details">
+                        <div className="home-project-meta">
+                          <span className="home-project-label">Client Name</span>
+                          <h3 className="home-project-client">{project.client_name}</h3>
+                        </div>
+
+                        <div className="home-project-meta">
+                          <span className="home-project-label">Installation Location</span>
+                          <div className="home-project-location">{project.installation_location}</div>
+                        </div>
+
+                        <div className="home-project-meta">
+                          <span className="home-project-label">Project Overview</span>
+                          <p className="home-project-description">{project.project_description}</p>
+                        </div>
+
+                        <Link to="/projects" className="home-project-btn">
+                          View All Projects
+                        </Link>
+                      </div>
+                    </div>
+
+                    {project.image_1 && (
+                      <div className="home-project-card home-project-image-card">
+                        <img
+                          src={project.image_1}
+                          alt={`${project.client_name} project view 1`}
+                          className="home-project-image"
+                        />
+                      </div>
+                    )}
+
+                    {project.image_2 && (
+                      <div className="home-project-card home-project-image-card">
+                        <img
+                          src={project.image_2}
+                          alt={`${project.client_name} project view 2`}
+                          className="home-project-image"
+                        />
+                      </div>
+                    )}
+
+                    {project.image_3 && (
+                      <div className="home-project-card home-project-image-card">
+                        <img
+                          src={project.image_3}
+                          alt={`${project.client_name} project view 3`}
+                          className="home-project-image"
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

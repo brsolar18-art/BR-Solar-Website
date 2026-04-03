@@ -1,0 +1,56 @@
+.enquiry-float-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 95px;
+  z-index: 9997;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  background: #f4b400;
+  color: #111827;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enquiry-float-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.enquiry-float-btn span {
+  position: absolute;
+  right: 74px;
+  background: #111827;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: 0.25s ease;
+}
+
+.enquiry-float-btn:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .enquiry-float-btn {
+    right: 16px;
+    bottom: 88px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .enquiry-float-btn span {
+    display: none;
+  }
+}
