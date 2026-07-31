@@ -6,6 +6,7 @@ import "./HomePage.css";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { FaHome, FaBuilding, FaRegBuilding } from "react-icons/fa";
+import SchemeCountdown from "./SchemeCountdown";
 
 function HomePage() {
   const [homeProjects, setHomeProjects] = useState([]);
@@ -34,7 +35,7 @@ function HomePage() {
     fetchRandomProjects();
   }, []);
 
-    const statsRef = useRef(null);
+  const statsRef = useRef(null);
   const [statsStarted, setStatsStarted] = useState(false);
   const [stats, setStats] = useState({
     installations: 0,
@@ -102,20 +103,26 @@ function HomePage() {
     <>
       <Navbar />
       <main className="home">
-        <section className="hero-section">
-          <img src="/Images/solar1.jpg" alt="Solar Panel Installation" className="hero-image" />
+        <section className="hero-section-final">
+          <img
+            src="/Images/home-banner-3.png"
+            alt="Solar Panel Installation"
+            className="hero-image-final"
+          />
 
-          <div className="hero-overlay"></div>
+          <div className="hero-overlay-final"></div>
 
-          <div className="text-container">
-            <h6 className="small-text">BR SOLAR</h6>
-            <h1 className="crafted-text">Power From</h1>
-            <h1 className="built-text">Every Sunrise</h1>
-            <h4 className="description-title">
+          <div className="text-container-final">
+            <h6 className="small-text-final">BR SOLAR</h6>
+            <h1 className="crafted-text-final">Power From</h1>
+            <h1 className="built-text-final">Every Sunrise</h1>
+            <h4 className="description-title-final">
               Clean energy for homes, businesses, and a greener tomorrow
             </h4>
           </div>
         </section>
+
+        <SchemeCountdown />
 
         <section className="services-sec" aria-label="Solar energy solutions">
           <div className="services-inner">
@@ -221,7 +228,7 @@ function HomePage() {
           </div>
         </section>
 
-                <section className="solar-stats" ref={statsRef} aria-label="Solar achievements">
+        <section className="solar-stats" ref={statsRef} aria-label="Solar achievements">
           <div className="solar-stats-container">
             <div className="solar-stats-head">
               <span className="solar-stats-pill">BR SOLAR IMPACT</span>
@@ -353,28 +360,40 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="hero" aria-label="Main banner">
-          <img className="hero-img" src="/Images/main-banner-3.jpg" alt="Kalki's Inchx Interio banner" />
-          <div className="hero-overlay" />
-          <div className="hero-content">
-            <div className="hero-badge">
-              <img className="hero-logo" src="/Images/logo.svg" alt="BR Solar logo" />
+        <section className="hero-updated" aria-label="Main banner">
+          <img
+            className="hero-img-updated"
+            src="/Images/main-banner-3.jpg"
+            alt="BR Solar banner"
+          />
+
+          <div className="hero-overlay-updated" />
+
+          <div className="hero-content-updated">
+            <div className="hero-badge-updated">
+              <img
+                className="hero-logo-updated"
+                src="/Images/logo.svg"
+                alt="BR Solar logo"
+              />
             </div>
 
-            <h1 className="hero-title">
+            <h1 className="hero-title-updated">
               Solar Power That
               <br />
               Works for Life
             </h1>
 
-            <p className="hero-subtitle">
-              From planning to installation, we deliver solar solutions that save energy and cut electricity costs.
-              High-efficiency panels, smart system design, reliable performance, and clean <br />
-              power.
-              Built for your home, your business, and your future.
+            <p className="hero-subtitle-updated">
+              From planning to installation, we deliver solar solutions that save
+              energy and cut electricity costs. High-efficiency panels, smart system
+              design, reliable performance, and clean
+              <br />
+              power. Built for your home, your business, and your future.
             </p>
           </div>
         </section>
+
 
         <section className="split-banner-section" aria-label="Explore solar panel types">
           <div className="split-banner-inner">
