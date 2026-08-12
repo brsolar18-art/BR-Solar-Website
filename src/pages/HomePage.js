@@ -298,9 +298,7 @@ function HomePage() {
                 {homeProjects.map((project, index) => (
                   <div className="home-project-row" key={project.id || index}>
                     <div className="home-project-card home-project-info-card">
-                      <div className="home-project-top">
-                        <div className="home-project-badge">Project #{project.id}</div>
-                      </div>
+                      
 
                       <div className="home-project-details">
                         <div className="home-project-meta">
